@@ -6,111 +6,111 @@ local S = minetest.get_translator("biofuel")
 ----------
 
 --Empty Vial
-minetest.register_craftitem("biofuel:phial", {
+minetest.register_craftitem("hades_biofuel:phial", {
 	description = S("Empty Vial"),
 	inventory_image = "biofuel_phial.png"
 })
 
 minetest.register_craft({
-	output = "biofuel:phial 6",
-	recipe = {{"default:glass"},
-						{"default:glass"}},
+	output = "hades_biofuel:phial 6",
+	recipe = {{"hades_core:glass"},
+						{"hades_core:glass"}},
 })
 
 minetest.register_craft({
   type = "shapeless",
 	output = "vessels:glass_fragments",
-	recipe = {"biofuel:phial","biofuel:phial","biofuel:phial"},
+	recipe = {"hades_biofuel:phial","hades_biofuel:phial","hades_biofuel:phial"},
 })
 
 --Vial of Biofuel
-minetest.register_craftitem("biofuel:phial_fuel", {
+minetest.register_craftitem("hades_biofuel:phial_fuel", {
 	description = S("Vial of Biofuel"),
 	inventory_image = "biofuel_phial_fuel.png"
 })
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "biofuel:phial_fuel",
+	recipe = "hades_biofuel:phial_fuel",
 	burntime = 10,
-	replacements = {{"biofuel:phial_fuel", "biofuel:phial"}},
+	replacements = {{"hades_biofuel:phial_fuel", "hades_biofuel:phial"}},
 })
 
 
 --Bottle of Biofuel
 
-minetest.register_craftitem("biofuel:bottle_fuel", {
+minetest.register_craftitem("hades_biofuel:bottle_fuel", {
 	description = S("Bottle of Biofuel"),
 	inventory_image = "biofuel_bottle_fuel.png",
 })
 
 minetest.register_craft({
     type = "shapeless",
-    output = "biofuel:bottle_fuel",
-    recipe = {"biofuel:phial_fuel", "biofuel:phial_fuel", "biofuel:phial_fuel", "biofuel:phial_fuel","vessels:glass_bottle"},
-    replacements = {{"biofuel:phial_fuel", "biofuel:phial"},{"biofuel:phial_fuel", "biofuel:phial"},{"biofuel:phial_fuel", "biofuel:phial"},{"biofuel:phial_fuel", "biofuel:phial"}},
+    output = "hades_biofuel:bottle_fuel",
+    recipe = {"hades_biofuel:phial_fuel", "hades_biofuel:phial_fuel", "hades_biofuel:phial_fuel", "hades_biofuel:phial_fuel","vessels:glass_bottle"},
+    replacements = {{"hades_biofuel:phial_fuel", "hades_biofuel:phial"},{"hades_biofuel:phial_fuel", "hades_biofuel:phial"},{"hades_biofuel:phial_fuel", "hades_biofuel:phial"},{"hades_biofuel:phial_fuel", "hades_biofuel:phial"}},
 })
 
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "biofuel:bottle_fuel",
+	recipe = "hades_biofuel:bottle_fuel",
 	burntime = 40,
-	replacements = {{"biofuel:bottle_fuel", "vessels:glass_bottle"}},
+	replacements = {{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"}},
 })
 
 
 --Canister of Biofuel
 
-minetest.register_craftitem("biofuel:can", {
+minetest.register_craftitem("hades_biofuel:can", {
 	description = S("Empty Canister"),
 	inventory_image = "biofuel_fuel_can.png"
 })
 
-if minetest.get_modpath("technic") then
+if minetest.get_modpath("hades_technic") then
 	minetest.register_craft({
-		output = "biofuel:can",
-		recipe = {{"technic:water_can"}}
+		output = "hades_biofuel:can",
+		recipe = {{"hades_technic:water_can"}}
 	})
 else
 	minetest.register_craft({
-		output = "biofuel:can",
+		output = "hades_biofuel:can",
 		recipe = {
-			{"default:steel_ingot","default:bronze_ingot","default:steel_ingot"},
-			{"default:steel_ingot","","default:steel_ingot"},
-			{"default:steel_ingot","default:steel_ingot","default:steel_ingot"}
+			{"hades_core:steel_ingot","hades_core:bronze_ingot","hades_core:steel_ingot"},
+			{"hades_core:steel_ingot","","hades_core:steel_ingot"},
+			{"hades_core:steel_ingot","hades_core:steel_ingot","hades_core:steel_ingot"}
 		},
 	})
 end
 
-minetest.register_craftitem("biofuel:fuel_can", {
+minetest.register_craftitem("hades_biofuel:fuel_can", {
 	description = S("Canister of Biofuel"),
 	inventory_image = "biofuel_fuel_can.png"
 })
 
 minetest.register_craft({
 	type = "fuel",
-	recipe = "biofuel:fuel_can",
+	recipe = "hades_biofuel:fuel_can",
 	burntime = 320,
-	replacements = {{"biofuel:fuel_can", "biofuel:can"}},
+	replacements = {{"hades_biofuel:fuel_can", "hades_biofuel:can"}},
 })
 
 minetest.register_craft({
-	output = "biofuel:fuel_can",
+	output = "hades_biofuel:fuel_can",
 	recipe = {
-			{"biofuel:bottle_fuel", "biofuel:bottle_fuel", "biofuel:bottle_fuel"},
-			{"biofuel:bottle_fuel", "biofuel:bottle_fuel", "biofuel:bottle_fuel"},
-			{"biofuel:bottle_fuel", "biofuel:can", "biofuel:bottle_fuel"}
+			{"hades_biofuel:bottle_fuel", "hades_biofuel:bottle_fuel", "hades_biofuel:bottle_fuel"},
+			{"hades_biofuel:bottle_fuel", "hades_biofuel:bottle_fuel", "hades_biofuel:bottle_fuel"},
+			{"hades_biofuel:bottle_fuel", "hades_biofuel:can", "hades_biofuel:bottle_fuel"}
 		},
-	replacements = {{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"},{"biofuel:bottle_fuel", "vessels:glass_bottle"}},
+	replacements = {{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"},{"hades_biofuel:bottle_fuel", "vessels:glass_bottle"}},
 })
 
 minetest.register_craft({
-	output = "biofuel:fuel_can",
+	output = "hades_biofuel:fuel_can",
 	recipe = {
 			{"group:biofuel", "group:biofuel", "group:biofuel"},
 			{"group:biofuel", "group:biofuel", "group:biofuel"},
-			{"group:biofuel", "biofuel:can", "group:biofuel"}
+			{"group:biofuel", "hades_biofuel:can", "group:biofuel"}
 		}
 })
 

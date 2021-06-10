@@ -16,12 +16,12 @@ local S = minetest.get_translator("biofuel")
 -- hopper compat
 if minetest.get_modpath("hopper") then
 	hopper:add_container({
-		{"top", "biofuel:refinery", "dst"},
-		{"bottom", "biofuel:refinery", "src"},
-		{"side", "biofuel:refinery", "src"},
-		{"top", "biofuel:refinery_active", "dst"},
-		{"bottom", "biofuel:refinery_active", "src"},
-		{"side", "biofuel:refinery_active", "src"},
+		{"top", "hades_biofuel:refinery", "dst"},
+		{"bottom", "hades_biofuel:refinery", "src"},
+		{"side", "hades_biofuel:refinery", "src"},
+		{"top", "hades_biofuel:refinery_active", "dst"},
+		{"bottom", "hades_biofuel:refinery_active", "src"},
+		{"side", "hades_biofuel:refinery_active", "src"},
 	})
 end
 
@@ -48,12 +48,12 @@ biomass.convertible_groups = {
 								'leafdecay', 'leafdecay_drop', 'mushroom', 'vines'
 							  }
 biomass.convertible_nodes = {
-							'default:cactus', 'default:large_cactus_seedling',												-- default cactus
-							'default:bush_stem', 'default:pine_bush_stem', 'default:acacia_bush_stem',						-- default bush stem
+							'hades_core:cactus', 'hades_core:large_cactus_seedling',												-- default cactus
+							'hades_core:bush_stem', 'hades_core:pine_bush_stem', 'hades_core:acacia_bush_stem',						-- default bush stem
 							'farming:cotton', 'farming:string', 'farming:wheat', 'farming:straw',							-- farming
 							'farming:hemp_leaf', 'farming:hemp_block', 'farming:hemp_fibre', 'farming:hemp_rope', 			-- farming_redo hemp
 							'farming:barley', 'farming:jackolantern',
-							'default:papyrus', 'default:dry_shrub', 'default:marram_grass_1', 'default:sand_with_kelp',		-- default
+							'hades_core:papyrus', 'hades_core:dry_shrub', 'hades_core:marram_grass_1', 'hades_core:sand_with_kelp',		-- default
 							'pooper:poop_turd', 'pooper:poop_pile',															-- pooper
 							'cucina_vegana:flax', 'cucina_vegana:flax_roasted', 'cucina_vegana:sunflower',					-- cucina_vegana
 							'cucina_vegana:soy', 'cucina_vegana:chives', 
@@ -144,7 +144,7 @@ local function is_vessel(input)
 			return true
 	  end
 	else
-		if (input=="biofuel:phial") then
+		if (input=="hades_biofuel:phial") then
 			return true
 	  end
 	end
@@ -237,9 +237,9 @@ end
 
 local function update_nodebox(pos)
 	if is_empty(pos) then
-		swap_node(pos, "biofuel:refinery")
+		swap_node(pos, "hades_biofuel:refinery")
 	else
-		swap_node(pos, "biofuel:refinery_active")
+		swap_node(pos, "hades_biofuel:refinery_active")
 	end
 end
 
@@ -299,10 +299,10 @@ local function create_biofuel(pos)
 		if 99 > count then
 			if bottle_output then
 				inv:remove_item('src', ItemStack('vessels:glass_bottle'))
-				inv:set_stack('dst', k, 'biofuel:bottle_fuel ' .. (count + 1))
+				inv:set_stack('dst', k, 'hades_biofuel:bottle_fuel ' .. (count + 1))
 			else
-				inv:remove_item('src', ItemStack('biofuel:phial'))
-				inv:set_stack('dst', k, 'biofuel:phial_fuel ' .. (count + 1))
+				inv:remove_item('src', ItemStack('hades_biofuel:phial'))
+				inv:set_stack('dst', k, 'hades_biofuel:phial_fuel ' .. (count + 1))
 			end
 			break
 		end
@@ -348,7 +348,7 @@ end
 local function on_rightclick(pos, node, clicker, itemstack)
 	minetest.show_formspec(
 		clicker:get_player_name(),
-		'biofuel:refinery',
+		'hades_biofuel:refinery',
 		formspec(pos)
 	)
 end
@@ -447,7 +447,7 @@ local function allow_metadata_inventory_move(pos, from_list, from_index, to_list
 	end
 end
 
-minetest.register_node("biofuel:refinery", {
+minetest.register_node("hades_biofuel:refinery", {
 	description = S("Biofuel Refinery"),
 	drawtype = "nodebox",
 		tiles = {
@@ -489,7 +489,7 @@ minetest.register_node("biofuel:refinery", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {cracky = 3, oddly_breakable_by_hand=1, tubedevice=1, tubedevice_receiver=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	on_timer = on_timer,
 	on_construct = on_construct,
 	on_rightclick = on_rightclick,
@@ -502,7 +502,7 @@ minetest.register_node("biofuel:refinery", {
 	on_metadata_inventory_take = on_metadata_inventory_take,
 })
 
-minetest.register_node("biofuel:refinery_active", {
+minetest.register_node("hades_biofuel:refinery_active", {
 	description = S("Biofuel Refinery Active"),
 	drawtype = "nodebox",
 		tiles = {
@@ -544,7 +544,7 @@ minetest.register_node("biofuel:refinery_active", {
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {cracky = 3, oddly_breakable_by_hand=1, not_in_creative_inventory = 1, tubedevice=1, tubedevice_receiver=1},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = hades_sounds.node_sound_metal_defaults(),
 	on_timer = on_timer,
 	on_construct = on_construct,
 	on_rightclick = on_rightclick,
@@ -558,11 +558,11 @@ minetest.register_node("biofuel:refinery_active", {
 })
 
 minetest.register_craft({
-	output = "biofuel:refinery",
+	output = "hades_biofuel:refinery",
 	recipe = {
-		{"default:tin_ingot", "default:tin_ingot", "default:tin_ingot"},
-		{"default:glass", "default:glass", "default:glass"},
-		{"default:tin_ingot", "default:tin_ingot", "default:tin_ingot"}
+		{"hades_core:tin_ingot", "hades_core:tin_ingot", "hades_core:tin_ingot"},
+		{"hades_core:glass", "hades_core:glass", "hades_core:glass"},
+		{"hades_core:tin_ingot", "hades_core:tin_ingot", "hades_core:tin_ingot"}
 	}
 })
 
