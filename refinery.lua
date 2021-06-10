@@ -64,19 +64,19 @@ biomass.convertible_nodes = {
 							}
 
 biomass.convertible_food = {
-							'farming:bread', 'farming:flour',																-- default food
-							'farming:mint_leaf','farming:garlic', 'farming:peas',											-- farming_redo crops
-							'farming:pepper', 'farming:pineapple', 'farming:pineapple_ring', 'farming:potato',
-							'farming:rye', 'farming:oat', 'farming:rice', 'farming:rice_flour', 'farming:blueberry_pie',
-							'farming:bread_multigrain', 'farming:flour_multigrain', 'farming:baked_potato',					-- farming_redo
-							'farming:beetroot_soup', 'farming:bread_slice', 'farming:chili_bowl', 'farming:chocolate_block',
-							'farming:chocolate_dark', 'farming:cookie', 'farming:corn_cob', 'farming:cornstarch',
-							'farming:muffin_blueberry', 'farming:pea_soup', 'farming:potato_salad', 'farming:pumpkin_bread',
-							'farming:pumpkin_dough', 'farming:rhubarb_pie', 'farming:rice_bread', 'farming:toast',
-							'farming:toast_sandwich', 'farming:garlic_braid', 'farming:onion_soup', 
-							'farming:sugar', 'farming:turkish_delight', 'farming:garlic_bread', 'farming:donut',			-- farming_redo food
-							'farming:donut_chocolate', 'farming:donut_apple', 'farming:porridge', 'farming:jaffa_cake',
-							'farming:apple_pie', 'farming:pasta', 'farming:spaghetti', 'farming:bibimbap',
+							'hades_farming:bread', 'hades_farming:flour',																-- default food
+							'hades_farming:mint_leaf','hades_farming:garlic', 'hades_farming:peas',											-- farming_redo crops
+							'hades_extrafarming:pepper', 'hades_extrafarming:pineapple', 'hades_extrafarming:pineapple_ring', 'hades_extrafarming:potato',
+							'hades_extrafarming:rye', 'hades_extrafarming:oat', 'hades_extrafarming:rice', 'hades_extrafarming:rice_flour', 'hades_extrafarming:blueberry_pie',
+							'hades_extrafarming:bread_multigrain', 'hades_extrafarming:flour_multigrain', 'hades_extrafarming:baked_potato',					-- farming_redo
+							'hades_extrafarming:beetroot_soup', 'hades_extrafarming:bread_slice', 'hades_extrafarming:chili_bowl', 'hades_extrafarming:chocolate_block',
+							'hades_extrafarming:chocolate_dark', 'hades_extrafarming:cookie', 'hades_extrafarming:corn_cob', 'hades_extrafarming:cornstarch',
+							'hades_extrafarming:muffin_blueberry', 'hades_extrafarming:pea_soup', 'hades_extrafarming:potato_salad', 'hades_extrafarming:pumpkin_bread',
+							'hades_extrafarming:pumpkin_dough', 'hades_extrafarming:rhubarb_pie', 'hades_extrafarming:rice_bread', 'hades_extrafarming:toast',
+							'hades_extrafarming:toast_sandwich', 'hades_extrafarming:garlic_braid', 'hades_extrafarming:onion_soup', 
+							'hades_extrafarming:sugar', 'hades_extrafarming:turkish_delight', 'hades_extrafarming:garlic_bread', 'hades_extrafarming:donut',			-- farming_redo food
+							'hades_extrafarming:donut_chocolate', 'hades_extrafarming:donut_apple', 'hades_extrafarming:porridge', 'hades_extrafarming:jaffa_cake',
+							'hades_extrafarming:apple_pie', 'hades_extrafarming:pasta', 'hades_extrafarming:spaghetti', 'hades_extrafarming:bibimbap',
 							'wine:agave_syrup', 																			-- Wine
 							'cucina_vegana:asparagus', 'cucina_vegana:asparagus_hollandaise', 								-- cucina_vegana
 							'cucina_vegana:asparagus_hollandaise_cooked', 'cucina_vegana:asparagus_rice', 'cucina_vegana:asparagus_rice_cooked',
