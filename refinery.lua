@@ -243,6 +243,8 @@ local function update_nodebox(pos)
 	end
 end
 
+local fuel_production_step_time = minetest.settings:get("fuel_production_step_time") or 2
+local fuel_production_step_progress = minetest.settings:get("fuel_production_step_progress") or 20
 
 local function update_timer(pos)
 	local timer = minetest.get_node_timer(pos)
@@ -258,9 +260,8 @@ local function update_timer(pos)
 	end
 	local count = count_input(pos)
 	local vessel = have_vessel(pos)
-	local refinery_time = minetest.settings:get("fuel_production_time") or 10 		-- Timebase (settingtypes.txt)
 	if not timer:is_started() and count >= plants_input and vessel then        	  			-- Input
-		timer:start((refinery_time)/5)   											-- Timebase
+		timer:start(fuel_production_step_time)   											-- Timebase
 		meta:set_int('progress', 0)
 		meta:set_string('infotext', S("progress: @1%", "0"))
 		return
@@ -312,7 +313,7 @@ end
 local function on_timer(pos)
 	local timer = minetest.get_node_timer(pos)
 	local meta = minetest.get_meta(pos)
-	local progress = meta:get_int('progress') + 20  							--Progresss in %
+	local progress = meta:get_int('progress') + fuel_production_step_progress  							--Progresss in %
 	if progress >= 100 then
 		create_biofuel(pos)
 		meta:set_int('progress', 0)

@@ -1,5 +1,10 @@
-#The time that the refinery needs to produce fuel
-fuel_production_time (fuel production time) int 10 5 360
+#The refinery one step time
+#Total production time is floor(100/fuel_production_step_progress) * fuel_production_step_time
+fuel_production_step_time (fuel production step time) int 10 5 3600
+
+#The refinery one step progress
+#Total production time is floor(100/fuel_production_step_progress) * fuel_production_step_time
+fuel_production_step_progress (fuel production step progress) int 2 1 100
 
 #The number of biomass required for fuel production
 biomass_input (required input) int 4 1 99
