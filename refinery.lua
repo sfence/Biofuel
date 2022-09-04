@@ -154,14 +154,14 @@ end
 local function formspec(pos)
 	local spos = pos.x..','..pos.y..','..pos.z
 	local formspec =
-		'size[8,8.5]'..
+		'size[10,8.5]'..
 		default.gui_bg..
 		default.gui_bg_img..
 		default.gui_slots..
 		'list[nodemeta:'..spos..';src;0.5,0.5;3,3;]'..
 		'list[nodemeta:'..spos..';dst;5,1;2,2;]'..
-		'list[current_player;main;0,4.25;8,1;]'..
-		'list[current_player;main;0,5.5;8,3;8]'..
+		'list[current_player;main;0,4.25;10,1;]'..
+		'list[current_player;main;0,5.5;10,3;10]'..
 		'listring[nodemeta:'..spos ..';dst]'..
 		'listring[current_player;main]'..
 		'listring[nodemeta:'..spos ..';src]'..
@@ -389,7 +389,7 @@ local tube = {
 		local inv = meta:get_inventory()
 		stack = stack:peek_item(1)
 
-		return (is_convertible(stack:get_name()) or is_vessels(stack:get_name())) and inv:room_for_item("src", stack)
+		return (is_convertible(stack:get_name()) or is_vessel(stack:get_name())) and inv:room_for_item("src", stack)
 	end,
 	input_inventory = "dst",
 	connect_sides = {left = 1, right = 1, back = 1, front = 1, bottom = 1, top = 1}
